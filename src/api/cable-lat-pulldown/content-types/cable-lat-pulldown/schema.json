@@ -4,7 +4,8 @@
   "info": {
     "singularName": "cable-lat-pulldown",
     "pluralName": "cable-lat-pulldowns",
-    "displayName": "Cable Lat Pulldown"
+    "displayName": "Cable Lat Pulldown",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -22,6 +23,12 @@
     "date": {
       "type": "date",
       "required": true
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "cable_lat_pulldown"
     }
   }
 }

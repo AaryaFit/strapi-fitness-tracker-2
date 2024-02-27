@@ -193,6 +193,12 @@
     },
     "goal_sled_leg_press": {
       "type": "decimal"
+    },
+    "cable_lat_pulldown": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::cable-lat-pulldown.cable-lat-pulldown",
+      "mappedBy": "user"
     }
   }
 }

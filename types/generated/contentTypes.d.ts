@@ -803,6 +803,11 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
     goal_pull_up: Attribute.Decimal;
     goal_seated_dumbbell_shoulder_press: Attribute.Decimal;
     goal_sled_leg_press: Attribute.Decimal;
+    cable_lat_pulldown: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToMany',
+      'api::cable-lat-pulldown.cable-lat-pulldown'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1061,6 +1066,7 @@ export interface ApiCableLatPulldownCableLatPulldown
     singularName: 'cable-lat-pulldown';
     pluralName: 'cable-lat-pulldowns';
     displayName: 'Cable Lat Pulldown';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1069,6 +1075,11 @@ export interface ApiCableLatPulldownCableLatPulldown
     weight: Attribute.Decimal & Attribute.Required;
     reps: Attribute.Integer & Attribute.Required;
     date: Attribute.Date & Attribute.Required;
+    user: Attribute.Relation<
+      'api::cable-lat-pulldown.cable-lat-pulldown',
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
